@@ -1,11 +1,11 @@
 ![image](public/docs/.gitbook/assets/digidocu_mokup.jpg)
-# DigiDocu
-DigiDocu is a free, open source document management system built with laravel. Which provide easy way to 
+# Document Management System
+DMS is a free, open source document management system built with laravel. Which provide easy way to 
 manage documents with features like permissions, resize & compress images, combine multiple images into single pdf, 
 zip all files etc..
 
 ## Installation
-1. Download the latest release from [here](https://github.com/harish81/digidocu/releases) or clone repository.
+1. Download the latest release from [here](https://github.com/fauziabd26/document-management-system.git) or clone repository.
 2. Run `composer install`.
 3. Copy & setup `.env` file.
 4. Create database & Change `DB_DATABASE` in `.env`.
