@@ -15,8 +15,8 @@ class UsersTableSeeder extends Seeder
         //\App\User::truncate();
         \App\User::create([
             'name' => 'Super Admin',
-            'username' => 'super',
-            'password' => bcrypt('123456'),
+            'username' => 'admin',
+            'password' => bcrypt('12345678'),
             'status' => config('constants.STATUS.ACTIVE')
         ]);
     }

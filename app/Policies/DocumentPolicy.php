@@ -6,6 +6,7 @@ use App\Document;
 use App\Tag;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Facades\DB;
 
 class DocumentPolicy
 {
@@ -24,13 +25,13 @@ class DocumentPolicy
         }
 
         //check read permission in any tags
-        $tagsPermissions = Tag::selectRaw('CONCAT("read documents in tag ",id) as permissions')->pluck('permissions')->toArray();
+        $tagsPermissions = Tag::select(DB::raw("CONCAT('read documents in tag ',id) as permissions"))->pluck('permissions')->toArray();
         if ($user->hasAnyPermission($tagsPermissions)) {
             return true;
         }
 
         //check read permission in any documents
-        $documentsPermission = Document::selectRaw('CONCAT("read document ",id) as permissions')->pluck('permissions')->toArray();
+        $documentsPermission = Document::select(DB::raw("CONCAT('read document ',id) as permissions"))->pluck('permissions')->toArray();
         if ($user->hasAnyPermission($documentsPermission)) {
             return true;
         }
@@ -81,7 +82,7 @@ class DocumentPolicy
         }
 
         //check create permission in any tag
-        $tagsPermissions = Tag::selectRaw('CONCAT("create documents in tag ",id) as permissions')->pluck('permissions')->toArray();
+        $tagsPermissions = Tag::select(DB::raw("CONCAT('create documents in tag ',id) as permissions"))->pluck('permissions')->toArray();
         if ($user->hasAnyPermission($tagsPermissions)) {
             return true;
         }
